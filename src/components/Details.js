@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import {ProductConsumer} from '../context';
 import {Link} from 'react-router-dom';
 import {ButtonContainer} from './Button';
-import { directive } from '@babel/types';
 
 class Details extends Component {
     render() {
@@ -38,7 +37,8 @@ class Details extends Component {
                                             <ButtonContainer>back to products</ButtonContainer>
                                         </Link>
                                         <ButtonContainer className="ml-2" cart disabled={inCart ? true : false} onClick={()=>{
-                                            value.addToCart(id)
+                                            value.addToCart(id);
+                                            value.openModal(id);
                                         }}>
                                             {inCart ? 'inCart' : 'add to cart'}
                                         </ButtonContainer>
